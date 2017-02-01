@@ -11,11 +11,13 @@ import { routes } from './game.routes';
 import { GameComponent } from "./game.component";
 import { GamePanelComponent } from "./panel";
 import { GameTimerComponent } from "./timer";
+import { GameHomeComponent } from "./home";
 
 @NgModule({
     declarations: [
         // Components / Directives/ Pipes
         GameComponent,
+        GameHomeComponent,
         GamePanelComponent,
         GameTimerComponent,
     ],
