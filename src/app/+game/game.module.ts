@@ -12,12 +12,16 @@ import { GameComponent } from "./game.component";
 import { GamePanelComponent } from "./panel";
 import { GameTimerComponent } from "./timer";
 import { GameHomeComponent } from "./home";
+import { GameChooserComponent } from "./chooser";
+import { GameThemeComponent } from "./theme";
 
 @NgModule({
     declarations: [
         // Components / Directives/ Pipes
         GameComponent,
         GameHomeComponent,
+        GameChooserComponent,
+        GameThemeComponent,
         GamePanelComponent,
         GameTimerComponent,
     ],
