@@ -3,6 +3,8 @@
 @import '../../../styles/utils/mixins';
 @import '../variables';
 
+@import url("https://fonts.googleapis.com/css?family=Frijole");
+
 .chooser-wrapper {
   position: relative;
   width: 100%;
@@ -14,12 +16,14 @@
   margin: 0 auto;
   max-width: 700px;
   padding-top: $base-line-height * 3;
+  color: #2C3E50;
 }
 
 .heading {
   @include type-setting(3);
   text-transform: uppercase;
   margin: 0 0 $base-line-height;
+  font-family: 'Frijole', cursive, sans-serif;
 }
 
 .cards {
