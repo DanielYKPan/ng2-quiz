@@ -14,6 +14,7 @@ import { GameTimerComponent } from "./timer";
 import { GameHomeComponent } from "./home";
 import { GameChooserComponent } from "./chooser";
 import { GameThemeComponent } from "./theme";
+import { GameEndComponent } from "./end";
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { GameThemeComponent } from "./theme";
         GameHomeComponent,
         GameChooserComponent,
         GameThemeComponent,
+        GameEndComponent,
         GameTimerComponent,
     ],
     imports: [

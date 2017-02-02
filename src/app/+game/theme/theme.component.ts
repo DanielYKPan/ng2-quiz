@@ -3,7 +3,7 @@
  */
 
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { QuizService, IQuiz } from "../service";
 import { Subscription } from "rxjs";
 import { Timer } from "../timer";
@@ -41,6 +41,7 @@ export class GameThemeComponent implements OnInit, OnDestroy {
     private timeoutId: number;
 
     constructor( private route: ActivatedRoute,
+                 private router: Router,
                  private quizService: QuizService ) {
     }
 
@@ -80,6 +81,8 @@ export class GameThemeComponent implements OnInit, OnDestroy {
             if (this.q_num < this.q_amount) {
                 this.q_num += 1;
                 this.process();
+            }else {
+                this.router.navigate(['/game/end']);
             }
         }, 1000);
     }
