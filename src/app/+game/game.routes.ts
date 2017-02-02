@@ -5,7 +5,7 @@
 import { GameComponent } from './game.component';
 import { GameHomeComponent } from "./home";
 import { GameChooserComponent } from "./chooser";
-import { GameThemeComponent } from "./theme";
+import { GameThemeComponent, QuizsResolve } from "./theme";
 import { GameEndComponent } from "./end";
 
 export const routes = [
@@ -15,7 +15,7 @@ export const routes = [
         children: [
             {path: '', component: GameHomeComponent},
             {path: 'chooser', component: GameChooserComponent},
-            {path: 'chooser/:slug', component: GameThemeComponent},
+            {path: 'chooser/:slug', component: GameThemeComponent, resolve: {quizs: QuizsResolve}},
             {path: 'end', component: GameEndComponent},
         ]
     },

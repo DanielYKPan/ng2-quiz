@@ -13,7 +13,7 @@ import { GameComponent } from "./game.component";
 import { GameTimerComponent } from "./timer";
 import { GameHomeComponent } from "./home";
 import { GameChooserComponent } from "./chooser";
-import { GameThemeComponent } from "./theme";
+import { GameThemeComponent, QuizsResolve } from "./theme";
 import { GameEndComponent } from "./end";
 
 @NgModule({
@@ -34,6 +34,7 @@ import { GameEndComponent } from "./end";
     ],
     providers: [
         QuizService,
+        QuizsResolve,
     ]
 })
 export class GameModule {
