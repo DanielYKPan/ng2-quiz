@@ -11,7 +11,7 @@ import { routes } from './game.routes';
 import { QuizService } from "./service";
 import { GameComponent } from "./game.component";
 import { GameTimerComponent } from "./timer";
-import { GameHomeComponent } from "./home";
+import { GameHomeComponent, GameHomeAchievementsComponent } from "./home";
 import { GameChooserComponent } from "./chooser";
 import { GameThemeComponent, QuizsResolve } from "./theme";
 import { GameEndComponent } from "./end";
@@ -21,6 +21,7 @@ import { GameEndComponent } from "./end";
         // Components / Directives/ Pipes
         GameComponent,
         GameHomeComponent,
+        GameHomeAchievementsComponent,
         GameChooserComponent,
         GameThemeComponent,
         GameEndComponent,

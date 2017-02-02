@@ -1,0 +1,63 @@
+@import '../../../styles/utils/variables';
+@import '../../../styles/utils/functions';
+@import '../../../styles/utils/mixins';
+
+.achievement {
+  width: 100%;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 95%;
+    height: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: $base-line-height * 3;
+  }
+
+  .heading {
+    @include type-setting(2);
+    @include respond-to(medium) {
+      @include type-setting(3);
+      margin: 0 0 $base-line-height;
+    }
+
+    font-family: 'Frijole', cursive, sans-serif;
+    color: #2C3E50;
+  }
+
+  .bums {
+    width: 100%;
+  }
+
+  .bum {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .image {
+    width: 20%;
+    margin: 5px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .content {
+    width: 80%;
+    margin: 5px;
+
+    .header {
+      font-weight: 600;
+    }
+
+    .sub-header {
+      @include type-setting(-1);
+      color: gray;
+    }
+  }
+}
