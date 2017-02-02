@@ -10,7 +10,6 @@ import { HttpModule } from "@angular/http";
 import { routes } from './game.routes';
 import { QuizService } from "./service";
 import { GameComponent } from "./game.component";
-import { GamePanelComponent } from "./panel";
 import { GameTimerComponent } from "./timer";
 import { GameHomeComponent } from "./home";
 import { GameChooserComponent } from "./chooser";
@@ -23,7 +22,6 @@ import { GameThemeComponent } from "./theme";
         GameHomeComponent,
         GameChooserComponent,
         GameThemeComponent,
-        GamePanelComponent,
         GameTimerComponent,
     ],
     imports: [

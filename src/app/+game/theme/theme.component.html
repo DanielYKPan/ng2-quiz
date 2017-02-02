@@ -1,1 +1,15 @@
-<h1>Theme Component</h1>
+<div class="quiz-theme {{themeColor}}" *ngIf="quizs">
+    <div class="container">
+        <div class="question-numbering">{{q_num}}/{{q_amount}}</div>
+        <div class="question-heading">{{currentQuize.question}}</div>
+        <app-game-timer [timer]="timer" (onTimerExpire)="checkAnswer()"></app-game-timer>
+        <div class="choices">
+            <button class="choice-btn"
+                    *ngFor="let choice of currentQuize.choices; let i = index"
+                    [class.wrong]="revealAnswer && choice != currentQuize.answer"
+                    (click)="checkAnswer(choice)">
+                {{choiceCharCode(i)}}. {{choice}}
+            </button>
+        </div>
+    </div>
+</div>

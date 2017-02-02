@@ -2,7 +2,7 @@
  * timer.component
  */
 
-import { Component, OnInit, Input, OnChanges, SimpleChanges, OnDestroy } from "@angular/core";
+import { Component, OnInit, Input, OnChanges, SimpleChanges, OnDestroy, Output, EventEmitter } from "@angular/core";
 import { Timer } from "./timer";
 
 @Component({
@@ -14,6 +14,7 @@ import { Timer } from "./timer";
 export class GameTimerComponent implements OnInit, OnChanges, OnDestroy {
 
     @Input() timer:Timer;
+    @Output() onTimerExpire = new EventEmitter<boolean>();
 
     private intervalId: number;
 
@@ -36,6 +37,7 @@ export class GameTimerComponent implements OnInit, OnChanges, OnDestroy {
                 this.timer.Current = this.timer.Max + this.timer.Bonus - ((currentTime - time_1) / 1000);
                 if (this.timer.Current <= 0) {
                     this.timer.Current = 0;
+                    this.onTimerExpire.emit(true);
                     this.clearTimer();
                 }
 
