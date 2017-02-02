@@ -12,9 +12,10 @@ import { QuizService } from "./service";
 import { GameComponent } from "./game.component";
 import { GameTimerComponent } from "./timer";
 import { GameHomeComponent, GameHomeAchievementsComponent } from "./home";
-import { GameChooserComponent } from "./chooser";
 import { GameThemeComponent, QuizsResolve } from "./theme";
 import { GameEndComponent } from "./end";
+import { QuizThemeService } from "./quiz-game";
+import { QuizChooserComponent } from "./quiz-chooser";
 
 @NgModule({
     declarations: [
@@ -22,10 +23,11 @@ import { GameEndComponent } from "./end";
         GameComponent,
         GameHomeComponent,
         GameHomeAchievementsComponent,
-        GameChooserComponent,
         GameThemeComponent,
         GameEndComponent,
         GameTimerComponent,
+
+        QuizChooserComponent,
     ],
     imports: [
         CommonModule,
@@ -36,6 +38,7 @@ import { GameEndComponent } from "./end";
     providers: [
         QuizService,
         QuizsResolve,
+        QuizThemeService,
     ]
 })
 export class GameModule {
