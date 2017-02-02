@@ -17,19 +17,35 @@ export interface IQuiz {
 @Injectable()
 export class QuizService {
 
+    private themeScore: number = 0;
+
+    get ThemeScore(): number {
+        return this.themeScore;
+    }
+
+    private q_amount: number = 10;
+
+    get QAmount(): number {
+        return this.q_amount;
+    }
+
     constructor( private http: Http ) {
     }
 
-    getQuestions( theme: string, num?: number ): Observable<IQuiz[]> {
+    getQuestions( theme: string ): Observable<IQuiz[]> {
         let url = 'assets/data/quiz/' + theme + '.json';
         let all = this.http.get(url)
             .map(this.extractData);
 
-        if (num) {
-            return all.map(data => _.sampleSize(data, num));
-        } else {
-            return all;
-        }
+        return all.map(data => _.sampleSize(data, this.q_amount));
+    }
+
+    addScore(): void {
+        this.themeScore += 1;
+    }
+
+    resetScore(): void {
+        this.themeScore = 0;
     }
 
     private extractData( res: Response ) {

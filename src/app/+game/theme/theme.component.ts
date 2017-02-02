@@ -33,11 +33,11 @@ export class GameThemeComponent implements OnInit, OnDestroy {
     currentQuize: IQuiz;
     themeColor: string;
     q_num: number;
+    q_amount: number;
     timer: Timer;
     revealAnswer: boolean;
 
     private getQuestionsSub: Subscription;
-    private q_amount: number = 10;
     private timeoutId: number;
 
     constructor( private route: ActivatedRoute,
@@ -48,8 +48,10 @@ export class GameThemeComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         let slug = this.route.snapshot.params['slug'];
         this.q_num = 1;
+        this.q_amount = this.quizService.QAmount;
         this.themeColor = themes[slug];
-        this.getQuestionsSub = this.quizService.getQuestions(slug, this.q_amount)
+        this.quizService.resetScore();
+        this.getQuestionsSub = this.quizService.getQuestions(slug)
             .subscribe(
                 data => this.onQuestionsRetrieved(data)
             );
@@ -71,9 +73,7 @@ export class GameThemeComponent implements OnInit, OnDestroy {
         if (!this.revealAnswer) this.revealAnswer = true;
 
         if (choice && choice === this.currentQuize.answer)
-            console.log("correct");
-        else
-            console.log("wrong");
+            this.quizService.addScore();
 
         this.timer.Stop = true;
 
