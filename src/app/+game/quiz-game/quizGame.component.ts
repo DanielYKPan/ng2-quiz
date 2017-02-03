@@ -2,16 +2,16 @@
  * quizGame.component
  */
 
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewContainerRef } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastsManager } from "ng2-toastr";
 import { Subscription } from "rxjs";
 import { Timer } from "../timer";
 import { QuizTheme } from "./quizTheme";
 import { QuizThemeService } from "./quizTheme.service";
-
 import { QuizStatus } from "./quizStatus";
 import { AnswerStatus } from "./answerStatus";
-import { AchievementEventService } from "../achievement/events/achievementEvent.service";
+import { AchievementEventService } from "../achievement";
 import { IQuiz, QuizService } from "./quiz.service";
 
 @Component({
@@ -29,7 +29,6 @@ export class QuizGameComponent implements OnInit {
     timer: Timer;
     revealAnswer: boolean;
 
-    private total: number = 20;
     private status: QuizStatus;
 
     private getQuestionsSub: Subscription;
@@ -37,9 +36,12 @@ export class QuizGameComponent implements OnInit {
 
     constructor( private route: ActivatedRoute,
                  private router: Router,
+                 private vcr: ViewContainerRef,
+                 private toastr: ToastsManager,
                  private quizService: QuizService,
                  private themeService: QuizThemeService,
-                 private eventService: AchievementEventService) {
+                 private eventService: AchievementEventService ) {
+        this.toastr.setRootViewContainerRef(vcr);
     }
 
     ngOnInit(): void {
@@ -48,8 +50,7 @@ export class QuizGameComponent implements OnInit {
         this.q_num = 1;
         this.q_amount = this.quizService.QAmount;
         this.theme = this.themeService.findOne(slug);
-
-        this.status = new QuizStatus(this.theme, this.total);
+        this.status = new QuizStatus(this.theme, this.q_amount);
         this.process();
     }
 
@@ -76,25 +77,25 @@ export class QuizGameComponent implements OnInit {
             if (this.q_num < this.q_amount) {
                 this.q_num += 1;
                 this.process();
-            }else {
+            } else {
                 this.eventService.completedEvent.emit(this.status);
                 this.router.navigate(['/game/end']);
             }
         }, 1000);
     }
 
-    private handleAnswer(choice: string) {
+    private handleAnswer( choice: string ) {
         let answerStatus;
-        if(choice == null) {
-            console.log("Too bad, you didn't answer the question in time.");
+        if (choice == null) {
+            this.toastr.error("Too bad, you didn't answer the question in time.", 'Oops!');
             answerStatus = new AnswerStatus(false, this.theme);
             this.status.wrong += 1;
-        } else if (this.currentQuize.answer === choice){
-            console.log("Correct");
+        } else if (this.currentQuize.answer === choice) {
+            this.toastr.success('You are awesome!', 'Correct!');
             answerStatus = new AnswerStatus(true, this.theme);
             this.status.correct += 1;
         } else {
-            console.log("That was not the correct answer.");
+            this.toastr.error('That was not the correct answer.', 'Oops!');
             answerStatus = new AnswerStatus(false, this.theme);
             this.status.wrong += 1;
         }
