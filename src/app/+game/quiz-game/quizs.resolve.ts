@@ -1,11 +1,11 @@
 /**
- * theme.resolve
+ * quizs.resolve
  */
 
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from "@angular/router";
 import { Observable } from "rxjs/Observable";
-import { QuizService, IQuiz } from "../service";
+import { IQuiz, QuizService } from "./quiz.service";
 
 @Injectable()
 export class QuizsResolve implements Resolve<IQuiz[]> {

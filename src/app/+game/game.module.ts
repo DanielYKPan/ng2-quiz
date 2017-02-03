@@ -8,14 +8,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from "@angular/http";
 import { routes } from './game.routes';
-import { QuizService } from "./service";
 import { GameComponent } from "./game.component";
 import { GameTimerComponent } from "./timer";
 import { GameHomeComponent, GameHomeAchievementsComponent } from "./home";
-import { GameThemeComponent, QuizsResolve } from "./theme";
 import { GameEndComponent } from "./end";
 import { QuizThemeService } from "./quiz-game";
 import { QuizChooserComponent } from "./quiz-chooser";
+
+import { QuizGameComponent, QuizsResolve, QuizService } from "./quiz-game";
+import {
+    AchievementEventService,
+    ProfileService,
+    AchievementService,
+    CompletedGamesHandler,
+    ProfileHandler
+} from "./achievement";
 
 @NgModule({
     declarations: [
@@ -23,11 +30,11 @@ import { QuizChooserComponent } from "./quiz-chooser";
         GameComponent,
         GameHomeComponent,
         GameHomeAchievementsComponent,
-        GameThemeComponent,
         GameEndComponent,
         GameTimerComponent,
 
         QuizChooserComponent,
+        QuizGameComponent,
     ],
     imports: [
         CommonModule,
@@ -39,6 +46,13 @@ import { QuizChooserComponent } from "./quiz-chooser";
         QuizService,
         QuizsResolve,
         QuizThemeService,
+
+        AchievementEventService,
+        AchievementService,
+        ProfileService,
+
+        ProfileHandler,
+        CompletedGamesHandler,
     ]
 })
 export class GameModule {

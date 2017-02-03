@@ -17,7 +17,7 @@ export interface IAchievement {
 @Injectable()
 export class AchievementService {
 
-    private url: string = 'app/+game/achievement/achievements.json';
+    private url: string = 'assets/data/quiz/achievements.json';
 
     private achievements: Array<IAchievement>;
 
@@ -33,13 +33,13 @@ export class AchievementService {
 
     pushAchievementToLocalStorage( achievement: IAchievement ): void {
         let tmpAchievements = this.getAchievementsFromLocalStorage();
-        if (this.achievements.indexOf(achievement) == -1) {
+        if (tmpAchievements.indexOf(achievement) == -1) {
             tmpAchievements.push(achievement);
             localStorage.setItem('achievements', JSON.stringify(tmpAchievements));
         }
     }
 
-    private getAchievementsFromLocalStorage(): IAchievement[] {
+    getAchievementsFromLocalStorage(): IAchievement[] {
         return JSON.parse(localStorage.getItem('achievements') || "[]");
     }
 }

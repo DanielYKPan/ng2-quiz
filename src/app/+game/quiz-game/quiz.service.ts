@@ -17,12 +17,6 @@ export interface IQuiz {
 @Injectable()
 export class QuizService {
 
-    private themeScore: number = 0;
-
-    get ThemeScore(): number {
-        return this.themeScore;
-    }
-
     private q_amount: number = 10;
 
     get QAmount(): number {
@@ -40,13 +34,6 @@ export class QuizService {
         return all.map(data => _.sampleSize(data, this.q_amount));
     }
 
-    addScore(): void {
-        this.themeScore += 1;
-    }
-
-    resetScore(): void {
-        this.themeScore = 0;
-    }
 
     private extractData( res: Response ) {
         let body = res.json();

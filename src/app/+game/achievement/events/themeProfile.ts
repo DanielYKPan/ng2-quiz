@@ -2,11 +2,17 @@
  * themeProfile
  */
 
-export interface ITheme {
-
-}
+import { QuizTheme } from "../../quiz-game/quizTheme";
 
 export class ThemeProfile {
 
-    public theme
+    public theme: QuizTheme;
+    public consecutively: number;
+    public wrong: number;
+    public correct: number;
+    public completedGames: number;
+
+    constructor( theme?: QuizTheme ) {
+        this.theme = theme || null;
+    }
 }
