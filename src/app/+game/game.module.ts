@@ -26,7 +26,8 @@ import {
     AnswerAmountHandler,
     ScoreHandler,
     MultiAchievementHandler,
-    QuizAchievementNotifierComponent
+    QuizAchievementNotifierComponent,
+    QuizAchievementListComponent
 } from "./achievement";
 import { NotifierModule } from "ng2-yk-notifier";
 
@@ -41,6 +42,7 @@ import { NotifierModule } from "ng2-yk-notifier";
         QuizChooserComponent,
         QuizGameComponent,
         QuizAchievementNotifierComponent,
+        QuizAchievementListComponent,
     ],
     imports: [
         CommonModule,

@@ -5,6 +5,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import 'rxjs/add/operator/map';
+import { Observable } from "rxjs";
 
 export interface IAchievement {
     key: string;
@@ -12,6 +13,7 @@ export interface IAchievement {
     name: string;
     description: string;
     points: number;
+    gained?: boolean;
 }
 
 @Injectable()
@@ -25,6 +27,10 @@ export class AchievementService {
         this.http.get(this.url).map(res => res.json()).subscribe(
             data => this.achievements = data
         );
+    }
+
+    getAvailableAchievements(): Observable<IAchievement[]> {
+        return this.http.get(this.url).map(res => res.json());
     }
 
     getAchievementByKey( key: string ): IAchievement {
