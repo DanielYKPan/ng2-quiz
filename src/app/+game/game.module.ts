@@ -23,6 +23,7 @@ import {
     ProfileHandler,
     ComboHandler,
     MasterThemeHandler,
+    AnswerAmountHandler,
     QuizAchievementNotifierComponent
 } from "./achievement";
 import { NotifierModule } from "ng2-yk-notifier";
@@ -59,6 +60,7 @@ import { NotifierModule } from "ng2-yk-notifier";
         CompletedGamesHandler,
         ComboHandler,
         MasterThemeHandler,
+        AnswerAmountHandler,
     ]
 })
 export class GameModule {

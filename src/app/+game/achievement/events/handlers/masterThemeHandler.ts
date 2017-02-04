@@ -24,7 +24,7 @@ export class MasterThemeHandler extends ProfileHandler {
         if (quiz != null) {
             let key = quiz.theme.code + "Master";
 
-            if (quiz.correct > 0 && !this.hasAchievement(gainedAchievements, key)) {
+            if (quiz.correct > 8 && !this.hasAchievement(gainedAchievements, key)) {
                 achievements.push(this.achievementService.getAchievementByKey(key));
             }
         }
