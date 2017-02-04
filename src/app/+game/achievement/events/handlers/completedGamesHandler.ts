@@ -18,6 +18,12 @@ export class CompletedGamesHandler extends ProfileHandler {
         if (profile.completedGames >= 1 && !this.hasAchievement(gainedAchievements, "firstGame")) {
             achievements.push(this.achievementService.getAchievementByKey('firstGame'));
         }
+        if (profile.completedGames >= 50 && !this.hasAchievement(gainedAchievements, "fiftyGames")) {
+            achievements.push(this.achievementService.getAchievementByKey('fiftyGames'));
+        }
+        if (profile.completedGames >= 100 && !this.hasAchievement(gainedAchievements, "hundredGames")) {
+            achievements.push(this.achievementService.getAchievementByKey('hundredGames'));
+        }
         return achievements;
     }
 }
