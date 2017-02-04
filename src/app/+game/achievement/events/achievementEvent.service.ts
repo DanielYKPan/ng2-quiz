@@ -11,6 +11,7 @@ import { ThemeProfile } from "./themeProfile";
 import { QuizStatus } from "../../quiz-game/quizStatus";
 import { AchievementService, IAchievement } from "../achievement.service";
 import { CompletedGamesHandler } from "./handlers/completedGamesHandler";
+import { ComboHandler } from "./handlers/comboHandler";
 
 @Injectable()
 export class AchievementEventService {
@@ -23,10 +24,11 @@ export class AchievementEventService {
 
     constructor( private profileService: ProfileService,
                  private achievementService: AchievementService,
-                 private completedGamesHandler: CompletedGamesHandler ) {
+                 private completedGamesHandler: CompletedGamesHandler,
+                 private comboHandler: ComboHandler) {
         this.answeredEvent.subscribe(data => this.handleAnswered(data));
         this.completedEvent.subscribe(data => this.handleCompleted(data));
-        this.handlers = [completedGamesHandler];
+        this.handlers = [completedGamesHandler, comboHandler];
     }
 
     private handleAnswered( status: AnswerStatus ) {
