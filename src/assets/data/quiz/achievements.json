@@ -197,7 +197,7 @@
   },
   {
     "key": "loser",
-    "img": "hex",
+    "img": "loser",
     "name": "Get at least 20 questions wrong",
     "description": "At least you win in losing!",
     "points": 10
@@ -211,28 +211,28 @@
   },
   {
     "key": "zeroScore",
-    "img": "hex",
+    "img": "zeroScore",
     "name": "Get 0/10 in any quiz",
     "description": "Did you even try?",
     "points": 10
   },
   {
     "key": "oneScore",
-    "img": "hex",
+    "img": "oneScore",
     "name": "Get 1/10 in any quiz",
     "description": "Better than nothing!",
     "points": 10
   },
   {
     "key": "newbie",
-    "img": "hex",
+    "img": "newbie",
     "name": "Answer your first answer correctly",
     "description": "Welcome newbie!",
     "points": 10
   },
   {
     "key": "fail",
-    "img": "hex",
+    "img": "fail",
     "name": "Get your first wrong answer",
     "description": "Fail!",
     "points": 10

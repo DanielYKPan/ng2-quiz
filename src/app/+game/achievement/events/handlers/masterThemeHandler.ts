@@ -2,9 +2,6 @@
  * masterThemeHandler
  */
 
-/**
- * comboHandler
- */
 import { Injectable } from "@angular/core";
 import { ProfileHandler } from "./profileHandler";
 import { AchievementService, IAchievement } from "../../achievement.service";

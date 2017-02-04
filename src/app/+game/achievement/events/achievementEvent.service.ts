@@ -14,6 +14,7 @@ import { CompletedGamesHandler } from "./handlers/completedGamesHandler";
 import { ComboHandler } from "./handlers/comboHandler";
 import { MasterThemeHandler } from './handlers/masterThemeHandler';
 import { AnswerAmountHandler } from "./handlers/answerAmountHandler";
+import { ScoreHandler } from "./handlers/scoreHandler";
 
 @Injectable()
 export class AchievementEventService {
@@ -29,10 +30,11 @@ export class AchievementEventService {
                  private completedGamesHandler: CompletedGamesHandler,
                  private comboHandler: ComboHandler,
                  private masterThemeHandler: MasterThemeHandler,
-                 private answerAmountHandler: AnswerAmountHandler ) {
+                 private answerAmountHandler: AnswerAmountHandler,
+                 private scoreHandler: ScoreHandler ) {
         this.answeredEvent.subscribe(data => this.handleAnswered(data));
         this.completedEvent.subscribe(data => this.handleCompleted(data));
-        this.handlers = [completedGamesHandler, comboHandler, masterThemeHandler, answerAmountHandler];
+        this.handlers = [completedGamesHandler, comboHandler, masterThemeHandler, answerAmountHandler, scoreHandler];
     }
 
     private handleAnswered( status: AnswerStatus ) {

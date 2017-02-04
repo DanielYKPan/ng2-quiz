@@ -9,3 +9,4 @@ export { QuizsResolve } from './quizs.resolve';
 export { QuizService, IQuiz } from './quiz.service';
 export { QuizStatus } from './quizStatus';
 export { AnswerStatus } from './answerStatus';
+export { QuizThemeKind } from './quizThemeKind';
