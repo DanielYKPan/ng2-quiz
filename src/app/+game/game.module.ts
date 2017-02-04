@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from "@angular/http";
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { routes } from './game.routes';
 import { GameComponent } from "./game.component";
 import { GameTimerComponent } from "./timer";
@@ -21,8 +20,10 @@ import {
     ProfileService,
     AchievementService,
     CompletedGamesHandler,
-    ProfileHandler
+    ProfileHandler,
+    QuizAchievementNotifierComponent
 } from "./achievement";
+import { NotifierModule } from "ng2-yk-notifier";
 
 @NgModule({
     declarations: [
@@ -34,17 +35,14 @@ import {
         GameTimerComponent,
         QuizChooserComponent,
         QuizGameComponent,
+        QuizAchievementNotifierComponent,
     ],
     imports: [
         CommonModule,
         FormsModule,
         HttpModule,
         RouterModule.forChild(routes),
-        ToastModule.forRoot({
-            toastLife: 2000,
-            positionClass: "toast-bottom-center",
-            animate: "fade"
-        }),
+        NotifierModule,
     ],
     providers: [
         QuizService,

@@ -17,6 +17,7 @@ export class AchievementEventService {
 
     answeredEvent = new EventEmitter<AnswerStatus>();
     completedEvent = new EventEmitter<QuizStatus>();
+    achievementEvent = new EventEmitter<IAchievement>();
 
     private handlers: Array<any>;
 
@@ -92,6 +93,7 @@ export class AchievementEventService {
         achievements.filter(( achievement ) => achievement != null).forEach(
             ( achievement ) => {
                 this.achievementService.pushAchievementToLocalStorage(achievement);
+                this.achievementEvent.emit(achievement);
             }
         );
     }
