@@ -14,7 +14,7 @@
     height: 100%;
     max-width: 700px;
     margin: 0 auto;
-    padding-top: $base-line-height * 3;
+    padding: $base-line-height * 3 0;
   }
 
   .heading {
@@ -30,6 +30,7 @@
 
   .bums {
     width: 100%;
+    margin: $base-line-height 0;
   }
 
   .bum {
@@ -58,6 +59,33 @@
     .sub-header {
       @include type-setting(-1);
       color: gray;
+    }
+  }
+
+  .link {
+    width: 100%;
+    text-align: center;
+
+    .btn {
+      @include type-setting(0);
+
+      @include respond-to(medium) {
+        @include type-setting(2);
+      }
+      padding: $base-line-height/2 2rem;
+      background-color: #fbbd08;
+      color: #fff;
+      font-weight: 600;
+      text-shadow: none;
+      text-transform: capitalize;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 0 0 rgba(34, 36, 38, .15) inset;
+
+      &:hover {
+        background-color: #eaae00;
+      }
     }
   }
 }

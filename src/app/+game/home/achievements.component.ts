@@ -3,6 +3,7 @@
  */
 
 import { Component, OnInit } from "@angular/core";
+import { AchievementService, IAchievement } from "../achievement";
 
 @Component({
     selector: 'app-game-home-achievements',
@@ -11,9 +12,13 @@ import { Component, OnInit } from "@angular/core";
 })
 
 export class GameHomeAchievementsComponent implements OnInit {
-    constructor() {
+
+    achievements: IAchievement[];
+
+    constructor( private achievementService: AchievementService ) {
     }
 
     ngOnInit(): void {
+        this.achievements = this.achievementService.getAchievementsFromLocalStorage();
     }
 }
