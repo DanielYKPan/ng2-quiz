@@ -15,7 +15,7 @@ export class ComboHandler extends ProfileHandler {
 
     getAchieved( profile: Profile, gainedAchievements: IAchievement[] ) {
         let achievements = [];
-        if (profile.consecutively >= 1 && !this.hasAchievement(gainedAchievements, "tenConsecutivelyCorrectAnswers")) {
+        if (profile.consecutively >= 10 && !this.hasAchievement(gainedAchievements, "tenConsecutivelyCorrectAnswers")) {
             achievements.push(this.achievementService.getAchievementByKey('tenConsecutivelyCorrectAnswers'));
         }
         if (profile.consecutively >= 25 && !this.hasAchievement(gainedAchievements, "twentyfiveConsecutivelyCorrectAnswers")) {
