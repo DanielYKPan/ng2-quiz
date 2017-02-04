@@ -113,70 +113,70 @@
   },
   {
     "key": "animalsMaster",
-    "img": "hex",
+    "img": "animals8",
     "name": "Get 8/10 or more in the Animals quiz",
     "description": "Zoologist",
     "points": 20
   },
   {
     "key": "brain-teasersMaster",
-    "img": "hex",
+    "img": "brainteasers8",
     "name": "Get 8/10 or more in the brain teasers quiz",
     "description": "Did your brains get overheated now?",
     "points": 20
   },
   {
     "key": "generalMaster",
-    "img": "hex",
+    "img": "general8",
     "name": "Get 8/10 or more in the general quiz",
     "description": "Generalist",
     "points": 20
   },
   {
     "key": "entertainmentMaster",
-    "img": "hex",
+    "img": "entertainment8",
     "name": "Get 8/10 or more in the entertainment quiz",
     "description": "Are you not entertained?",
     "points": 20
   },
   {
     "key": "kidsMaster",
-    "img": "hex",
+    "img": "kids8",
     "name": "Get 8/10 or more in the kids quiz",
     "description": "You could be a teacher now!",
     "points": 20
   },
   {
     "key": "literatureMaster",
-    "img": "hex",
+    "img": "literature8",
     "name": "Get 8/10 or more in the literature quiz",
     "description": "You're certainly a bookworm",
     "points": 20
   },
   {
     "key": "moviesMaster",
-    "img": "hex",
+    "img": "movies8",
     "name": "Get 8/10 or more in the movies quiz",
     "description": "Looks like binge-watching did pay off!",
     "points": 20
   },
   {
     "key": "scienceMaster",
-    "img": "hex",
+    "img": "science8",
     "name": "Get 8/10 or more in the science quiz",
     "description": "As smart as Sheldon Cooper",
     "points": 20
   },
   {
     "key": "sportsMaster",
-    "img": "hex",
+    "img": "sports8",
     "name": "Get 8/10 or more in the sports quiz",
     "description": "What a sportsman!",
     "points": 20
   },
   {
     "key": "videogamesMaster",
-    "img": "hex",
+    "img": "videogames8",
     "name": "Get 8/10 or more in the videogames quiz",
     "description": "LU-LU-LU-LUDICROUS KILL!",
     "points": 20
