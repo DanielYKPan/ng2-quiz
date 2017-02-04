@@ -6,7 +6,8 @@ import { Injectable } from "@angular/core";
 import { ProfileHandler } from "./profileHandler";
 import { AchievementService, IAchievement } from "../../achievement.service";
 import { Profile } from "../../profile/profile";
-import { AnswerStatus, QuizStatus, QuizThemeKind } from "../../../quiz-game";
+import { AnswerStatus, QuizStatus} from "../../../quiz-game";
+import { QuizThemeKind } from "../../../quiz-game/quizThemeKind";
 
 @Injectable()
 export class ScoreHandler extends ProfileHandler {

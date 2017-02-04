@@ -183,14 +183,14 @@
   },
   {
     "key": "geek",
-    "img": "hex",
+    "img": "geek",
     "name": "Get 8/10 in the literature, movies, science and videogames quizes",
     "description": "Played like a real geek!",
     "points": 50
   },
   {
     "key": "beater",
-    "img": "hex",
+    "img": "beater",
     "name": "Get 8/10 in all quizes",
     "description": "Beaten the game",
     "points": 100
