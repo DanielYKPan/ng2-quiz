@@ -1,5 +1,6 @@
 <div class="quiz-theme {{theme.color}}" *ngIf="quizs">
     <div class="container">
+        <quiz-points></quiz-points>
         <div class="question-numbering">{{q_num}}/{{q_amount}}</div>
         <div class="question-heading">{{currentQuize.question}}</div>
         <app-game-timer [timer]="timer" (onTimerExpire)="checkAnswer()"></app-game-timer>
