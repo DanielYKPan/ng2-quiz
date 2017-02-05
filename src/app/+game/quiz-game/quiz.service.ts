@@ -7,6 +7,7 @@ import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs";
 import * as _ from 'lodash';
 import 'rxjs/add/operator/map';
+import { QuizStatus } from "./quizStatus";
 
 export interface IQuiz {
     answer: string;
@@ -21,6 +22,16 @@ export class QuizService {
 
     get QAmount(): number {
         return this.q_amount;
+    }
+
+    private status: QuizStatus;
+
+    get Status(): QuizStatus {
+        return this.status;
+    }
+
+    set Status( value: QuizStatus ) {
+        this.status = value;
     }
 
     constructor( private http: Http ) {

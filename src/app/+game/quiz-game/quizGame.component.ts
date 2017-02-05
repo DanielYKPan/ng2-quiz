@@ -88,6 +88,7 @@ export class QuizGameComponent implements OnInit {
                 this.process();
             } else {
                 this.eventService.completedEvent.emit(this.status);
+                this.quizService.Status = this.status;
                 this.router.navigate(['/game/end']);
             }
         }, 1000);

@@ -3,7 +3,7 @@
  */
 
 import { Component, OnInit } from "@angular/core";
-import { QuizService } from "../quiz-game";
+import { QuizService, QuizStatus } from "../quiz-game";
 
 @Component({
     selector: 'app-game-end',
@@ -13,14 +13,12 @@ import { QuizService } from "../quiz-game";
 
 export class GameEndComponent implements OnInit {
 
-    themeScore: number;
-    qAmount: number;
+    status: QuizStatus;
 
     constructor( private quizService: QuizService ) {
     }
 
     ngOnInit(): void {
-        this.themeScore = 0;
-        this.qAmount = this.quizService.QAmount;
+        this.status = this.quizService.Status;
     }
 }
