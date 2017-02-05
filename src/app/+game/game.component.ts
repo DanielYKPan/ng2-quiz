@@ -13,8 +13,9 @@ import { INotifierOptions } from "ng2-yk-notifier";
 export class GameComponent implements OnInit {
 
     options: INotifierOptions = {
+        animate: 'fade',
         position: ['bottom', 'center'],
-        timeDelay: 1000
+        timeDelay: 2000
     };
 
     constructor() {

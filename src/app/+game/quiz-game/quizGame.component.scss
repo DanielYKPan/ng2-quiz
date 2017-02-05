@@ -47,7 +47,11 @@
 }
 
 .question-heading {
-  @include type-setting(1);
+  @include type-setting(0);
+
+  @include respond-to(medium) {
+    @include type-setting(1);
+  }
   width: 100%;
   text-align: center;
   color: $white;

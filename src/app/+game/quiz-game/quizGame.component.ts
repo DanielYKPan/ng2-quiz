@@ -91,7 +91,7 @@ export class QuizGameComponent implements OnInit {
                 this.quizService.Status = this.status;
                 this.router.navigate(['/game/end']);
             }
-        }, 1000);
+        }, 2000);
     }
 
     private handleAnswer( choice: string ) {

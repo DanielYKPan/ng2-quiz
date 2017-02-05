@@ -5,7 +5,6 @@
   display: block;
   max-width: 100%;
   border: none;
-  box-shadow: 0px 0px 12px 5px rgba(0,0,0,0.75);
   background: rgba(0,0,0,.1);
   border-radius: .3rem;
 }
@@ -23,7 +22,7 @@
   }
 
   &.urgent {
-    background-color: #db2828;
+    background-color: #a62626;
   }
 }
 
