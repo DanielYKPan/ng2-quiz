@@ -31,7 +31,7 @@ import {
 } from "./achievement";
 import { NotifierModule } from "ng2-yk-notifier";
 import { QuizPointComponent, PointService } from "./point";
-import { QuizBoostersComponent } from "./booster";
+import { QuizBoostersComponent, BoosterService } from "./booster";
 
 @NgModule({
     declarations: [
@@ -73,6 +73,7 @@ import { QuizBoostersComponent } from "./booster";
         MultiAchievementHandler,
 
         PointService,
+        BoosterService,
     ]
 })
 export class GameModule {

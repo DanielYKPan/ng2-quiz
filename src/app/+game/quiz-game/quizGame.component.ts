@@ -13,6 +13,7 @@ import { AnswerStatus } from "./answerStatus";
 import { AchievementEventService } from "../achievement";
 import { IQuiz, QuizService } from "./quiz.service";
 import { NotifierService } from "ng2-yk-notifier";
+import { BoosterService, IBooster } from "../booster";
 
 @Component({
     selector: 'app-quiz-game',
@@ -32,6 +33,8 @@ export class QuizGameComponent implements OnInit {
     private status: QuizStatus;
 
     private getQuestionsSub: Subscription;
+    private increaseTimeSub: Subscription;
+    private removeChoiceSub: Subscription;
     private timeoutId: number;
 
     constructor( private route: ActivatedRoute,
@@ -39,7 +42,8 @@ export class QuizGameComponent implements OnInit {
                  private notifier: NotifierService,
                  private quizService: QuizService,
                  private themeService: QuizThemeService,
-                 private eventService: AchievementEventService ) {
+                 private eventService: AchievementEventService,
+                 private boosterService: BoosterService ) {
     }
 
     ngOnInit(): void {
@@ -49,6 +53,8 @@ export class QuizGameComponent implements OnInit {
         this.q_amount = this.quizService.QAmount;
         this.theme = this.themeService.findOne(slug);
         this.status = new QuizStatus(this.theme, this.q_amount);
+        this.increaseTimeSub = this.boosterService.buyIncreaseTimeBooster.subscribe(( data: IBooster ) => this.addTimeBonus(data));
+        this.removeChoiceSub = this.boosterService.buyRemoveChoiceBooster.subscribe(( data: IBooster ) => this.removeChoice(data));
         this.process();
     }
 
@@ -115,5 +121,37 @@ export class QuizGameComponent implements OnInit {
 
     private clearTimer(): void {
         clearTimeout(this.timeoutId);
+    }
+
+    private addTimeBonus( booster: IBooster ): void {
+        if (this.revealAnswer) return;
+
+        let diff = Math.round(this.timer.Max - this.timer.Current);
+        if (diff > 5) {
+            this.timer.Bonus += 5;
+        } else {
+            this.timer.Bonus += diff;
+        }
+
+        this.boosterService.increaseTimeSuccess.emit(booster);
+        return;
+    }
+
+    private removeChoice( booster: IBooster ) {
+        if (this.revealAnswer) return;
+
+        if (this.currentQuize.choices.length <= 2) {
+            this.notifier.error("There are only " + this.currentQuize.choices.length + " answers, guess the right one!", "Not enough answers to delete");
+        }
+        else {
+            let index = Math.floor(Math.random() * this.currentQuize.choices.length);
+            while (this.currentQuize.answer === this.currentQuize.choices[index]) {
+                index = Math.floor(Math.random() * this.currentQuize.choices.length);
+            }
+            this.currentQuize.choices.splice(index, 1);
+            this.boosterService.removeChoiceSuccess.emit(booster);
+        }
+
+        return;
     }
 }
