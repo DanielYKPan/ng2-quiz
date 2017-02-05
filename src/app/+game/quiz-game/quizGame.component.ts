@@ -117,7 +117,7 @@ export class QuizGameComponent implements OnInit {
             this.clearTimer();
         this.revealAnswer = false;
         this.currentQuize = this.quizs[this.q_num - 1];
-        this.timer = new Timer(20, 20);
+        this.timer = new Timer(30, 30);
     }
 
     private clearTimer(): void {

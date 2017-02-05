@@ -90,8 +90,8 @@ export class AchievementEventService {
     private storeProfileInfo( profile: Profile, achievements: IAchievement[] ) {
         let rewarded = this.getPoints(achievements);
         profile.points = profile.points == null ? rewarded : profile.points + rewarded;
-        this.storeAchieved(achievements);
         this.profileService.saveProfile(profile);
+        this.storeAchieved(achievements);
     }
 
     private getPoints( achievements: IAchievement[] ) {

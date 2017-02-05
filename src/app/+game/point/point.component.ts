@@ -5,6 +5,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { PointService } from "./point.service";
 import { Subscription } from "rxjs";
+import { AchievementEventService } from "../achievement/events/achievementEvent.service";
 
 @Component({
     selector: 'quiz-points',
@@ -17,8 +18,10 @@ export class QuizPointComponent implements OnInit, OnDestroy {
     totalPoints: number;
 
     private totalPointsChangedSub: Subscription;
+    private achievementEventSub: Subscription;
 
-    constructor( private pointService: PointService ) {
+    constructor( private pointService: PointService,
+                 private achievementEventService: AchievementEventService ) {
     }
 
     ngOnInit(): void {
@@ -26,10 +29,19 @@ export class QuizPointComponent implements OnInit, OnDestroy {
         this.totalPointsChangedSub = this.pointService.totalPointsChange.subscribe(
             ( data: number ) => this.totalPoints = data
         );
+        this.achievementEventSub = this.achievementEventService.achievementEvent.subscribe(
+            ( data ) => {
+                this.totalPoints = this.pointService.getTotalPoints();
+                console.log(this.totalPoints);
+            }
+        );
     }
 
     ngOnDestroy(): void {
         if (this.totalPointsChangedSub)
             this.totalPointsChangedSub.unsubscribe();
+
+        if (this.achievementEventSub)
+            this.achievementEventSub.unsubscribe();
     }
 }
