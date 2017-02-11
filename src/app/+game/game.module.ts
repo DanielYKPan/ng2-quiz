@@ -53,7 +53,11 @@ import { QuizBoostersComponent, BoosterService } from "./booster";
         FormsModule,
         HttpModule,
         RouterModule.forChild(routes),
-        NotifierModule,
+        NotifierModule.forRoot({
+            animate: 'fade',
+            position: ['bottom', 'center'],
+            timeDelay: 2000
+        }),
     ],
     providers: [
         QuizService,

@@ -2,8 +2,8 @@
  * game.component
  */
 
-import { Component, OnInit } from '@angular/core';
-import { INotifierOptions } from "ng2-yk-notifier";
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { NotifierService } from "ng2-yk-notifier";
 
 @Component({
     selector: 'app-game',
@@ -12,16 +12,12 @@ import { INotifierOptions } from "ng2-yk-notifier";
 })
 export class GameComponent implements OnInit {
 
-    options: INotifierOptions = {
-        animate: 'fade',
-        position: ['bottom', 'center'],
-        timeDelay: 2000
-    };
-
-    constructor() {
+    constructor( private vRef: ViewContainerRef,
+                 private notifierService: NotifierService ) {
     }
 
     ngOnInit() {
+        this.notifierService.setRootViewContainerRef(this.vRef);
     }
 
 }
