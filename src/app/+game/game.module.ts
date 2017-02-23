@@ -32,6 +32,7 @@ import {
 import { NotifierModule } from "ng2-yk-notifier";
 import { QuizPointComponent, PointService } from "./point";
 import { QuizBoostersComponent, BoosterService } from "./booster";
+import { SocialBtnComponent } from './social';
 
 @NgModule({
     declarations: [
@@ -47,6 +48,7 @@ import { QuizBoostersComponent, BoosterService } from "./booster";
         QuizAchievementListComponent,
         QuizPointComponent,
         QuizBoostersComponent,
+        SocialBtnComponent,
     ],
     imports: [
         CommonModule,
