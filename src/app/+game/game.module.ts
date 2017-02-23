@@ -56,9 +56,8 @@ import { SocialBtnComponent } from './social';
         HttpModule,
         RouterModule.forChild(routes),
         NotifierModule.forRoot({
-            animate: 'fade',
             position: ['bottom', 'center'],
-            timeDelay: 2000
+            notifierLife: 2000
         }),
     ],
     providers: [
