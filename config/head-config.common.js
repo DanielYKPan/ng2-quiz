@@ -37,9 +37,6 @@ module.exports = {
         /** <link> tags for a Web App Manifest **/
         {rel: 'manifest', href: '/assets/manifest.json'},
 
-
-        /*  ng2-toastr */
-        {rel: 'stylesheet', href: '/assets/css/ng2-toastr.min.css'},
     ],
     meta: [
         {name: 'msapplication-TileColor', content: '#00bcd4'},
